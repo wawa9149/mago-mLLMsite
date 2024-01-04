@@ -134,7 +134,7 @@ class MyHomePage extends StatelessWidget {
                       _goToChatBotPage();
                     },
                     style: ElevatedButton.styleFrom(
-                      primary: const Color.fromRGBO(43, 52, 153, 1),
+                      backgroundColor: const Color.fromRGBO(43, 52, 153, 1),
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
