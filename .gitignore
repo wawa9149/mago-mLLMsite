@@ -28,3 +28,5 @@ doc/api/
 
 .DS_Store
 
+.Dockerfile
+.docker-compose.yaml

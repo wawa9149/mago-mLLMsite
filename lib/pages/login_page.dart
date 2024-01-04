@@ -11,51 +11,54 @@ class LogInPage extends StatefulWidget {
 }
 
 class LogInPageState extends State<LogInPage> {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController textController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const SizedBox(height: 200),
-          const Text(
-            '로그인',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-              fontSize: 40,
-            ),
-          ),
-          const SizedBox(height: 30),
-          const SizedBox(
+          SizedBox(
             width: 300,
+            height: 60,
             child: TextField(
-              decoration: InputDecoration(
+              controller: emailController,
+              decoration: const InputDecoration(
                 border: OutlineInputBorder(),
-                labelText: '아이디',
+                labelText: 'Email address',
               ),
             ),
           ),
-          const SizedBox(height: 30),
-          const SizedBox(
-            width: 300,
-            child: TextField(
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: '비밀번호',
+          const SizedBox(height: 20),
+          Container(
+            width: 200,
+            height: 60,
+            child: ElevatedButton(
+              onPressed: () {
+                _goToChatBotPage();
+              },
+              style: ElevatedButton.styleFrom(
+                primary: const Color.fromRGBO(43, 52, 153, 1),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
               ),
+              child: const Text('Get Started', style: TextStyle(fontSize: 25, color: Colors.white)),
             ),
-          ),
-          const SizedBox(height: 30),
-          ElevatedButton(
-            onPressed: () {
-              Get.to(const ChatBotPage());
-            },
-            style: ElevatedButton.styleFrom(
-              primary: Color.fromRGBO(110, 150, 200, 1),
-            ),
-            child: const Text('로그인'),
           ),
         ],
       ),
     );
+  }
+
+  // void _onEditingComplete() {
+  //   _goToChatBotPage();
+  // }
+
+  void _goToChatBotPage() async {
+    String email = emailController.text;
+    Get.to(ChatBotPage(email: email), transition: Transition.fadeIn, duration: Duration(milliseconds: 500));
   }
 }
