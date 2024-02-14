@@ -7,7 +7,7 @@ class MagoLLM{
   final String system;
   final String assistant;
   final dio = Dio();
-  final url = 'http://mllm.mago52.com:9211/llama/chat';
+  final url = 'http://gpu.mago52.com:9211/llama/chat';
 
   MagoLLM(this.user, this.system, this.assistant);
 
